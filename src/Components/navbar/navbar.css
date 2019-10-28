@@ -1,0 +1,93 @@
+header{
+    position:static;
+}
+
+nav{
+    margin-top: 25px;
+    margin-bottom:20px;
+    color:white;
+    max-height:70px;
+}
+
+a.menu-item{
+    text-decoration: none !important;
+    color: white;
+    font-size: 1.0vw;
+}
+
+a.menu-item:focus,
+li:hover{
+    
+    border-bottom:0.5px solid white;
+    border-top:none !important;
+    line-height: 50px;
+    
+}
+/*making the underline size would work best with SASS where we define a psuedo element after and give that element a specified width and a bottom border
+https://www.steckinsights.com/shorten-length-border-bottom-pure-css/*/
+
+img.logo{
+    width:100%;
+    max-width:60px;
+    display:inline-block;
+}
+
+button#adidas-url-btn{
+    height:35px;
+    border-radius: 20px;
+    padding: 10px 20px 10px 20px;
+    background:rgba(255,255,255,1);
+    border:none;
+    text-align:center;
+    font-size: 0.8vw;
+    transition: all 0.3s ease-in-out;
+    margin-top: 5%;
+    width: max-content;
+}
+
+
+
+button#adidas-url-btn:hover,button#adidas-url-btn:focus{
+    transform:scale(1.1,1.1);
+    box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+button#adidas-url-btn:active{
+    transform:scale(1.0,1.0);
+    box-shadow:0 4px 8px 0 rgba(71, 30, 30, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.08);
+}
+
+.nav-left.col-1{
+    padding-right: 1.04166666%;
+}
+
+.nav-right.col-1,.nav-right.col-2{
+    padding-left: 1.04166666%;
+    float:right;
+}
+
+.nav-center-parent{
+    display:block;
+    margin:0 auto;
+    position: relative;
+    text-align: center;
+    /*left:32%;*/
+
+}
+
+.nav-center-child{
+    padding-left: 1.04166666%;
+    padding-right: 1.04166666%;
+    display:inline-block;
+    width: min-content;
+    margin: 0.8% 3%;
+}
+
+.nav-center-parent>ul{
+    padding-left:0px;
+}
+
+@media screen and (max-width: 640px){
+    
+
+}

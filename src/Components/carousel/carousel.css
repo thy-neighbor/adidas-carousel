@@ -1,0 +1,68 @@
+div#carousel{
+    max-height: 660px;
+    overflow:hidden;
+}
+
+.carousel-content{
+    max-height: 660px;
+    overflow:hidden;
+}
+
+.col-6.carousel-content[id=right-carousel]{
+    padding:0px;
+    padding-right:1.04166666%;
+}
+
+.col-6.carousel-content[id=left-carousel]{
+    padding:0px;
+    padding-left:1.04166666%;
+}
+
+.slider-wrapper{
+    overflow:hidden;
+}
+
+/*Arrow Stuff*/
+.carousel-arrow{
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    color:white;
+}
+
+.arrow-container{
+    opacity:0.5;
+    position: absolute;
+    z-index: 24;
+    top: 400px;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+}
+
+
+#right-arrow-container{
+   right: 50px; 
+}
+
+#left-arrow-container{
+    left: 50px;
+}
+
+.arrow-container:hover{
+    opacity: 0.7;
+    color:white;
+    transform:scale(1.1,1.1);
+}
+
+.arrow-container:active{
+    opacity: 0.6;
+    transform:scale(0.85,0.85);
+}
+/*Nice drop shadow 
+    box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+*/
+    
+
+
+
+
+
