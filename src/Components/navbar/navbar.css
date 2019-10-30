@@ -85,11 +85,11 @@ button#adidas-url-btn:active{
 
 .nav-center-parent>ul.nav-list {
     padding-left: 0px;
-    padding-right: 3.5vw;
     padding-top: 2vh;
     margin: 0px auto;
     height: 7vh;
     display: flex;
+    justify-content: center;
     width: max-content;
     height: fit-content;
 }
@@ -100,6 +100,15 @@ button#adidas-url-btn:active{
 .menu-close {
   display: none;
   color:rgb(255,255,255);
+  width: fit-content;
+  z-index: 1;
+}
+
+.menu-toggle{
+
+    position: absolute;
+    left: 6vw;
+    top: 8.5vh;
 }
 
 
@@ -108,7 +117,7 @@ button#adidas-url-btn:active{
 
 @media screen and (max-width: 640px){
 
-  div.col-4.nav-center-parent > ul.nav-list, .menu-close {
+  .nav-center-parent{
     display: none;
   }
 
@@ -116,7 +125,63 @@ button#adidas-url-btn:active{
       display:block;
   }
 
-  .nav-list:target + .menu-close{
+  .nav-center-parent:target {
     display:block;
   }
+
+
+  .menu-close:target + .nav-list{
+      display:none;
+  }
+
+  .spacer{
+      display:none;
+  }
+
+  .nav-right.col-2{
+    width:fit-content;
+    position:absolute;
+    float:none;
+    left:80vw;
+    top:8.5vh;
+  }
+
+  a.menu-item{
+    text-decoration: none !important;
+    color: white;
+    font-size: 3.0vw;
+  }
+/*
+  .nav-center-parent{
+    height: 11vh;
+  }
+*/
+  .nav-center-parent>ul.nav-list {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 2vh;
+    margin: 0px auto;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: max-content;
+    height: fit-content;
+  }
+
+  .nav-list a {
+    display: block;
+    padding: .75em 15px;
+    line-height: 1em;
+    font-size: 1em;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid #383838;
+  }
+
+  .nav-center-child {
+    margin: 0.8% auto;
+  }
+
+
 }

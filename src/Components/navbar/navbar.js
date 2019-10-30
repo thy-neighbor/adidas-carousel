@@ -1,12 +1,31 @@
 
 import React from 'react';
-import adidasLogo from './white-adidas-logo-transparent-6.png' 
-import './navbar.css'
+import adidasLogo from './white-adidas-logo-transparent-6.png';
+import './navbar.css';
 
 
-export default function NavBar(props){
-    const rgb=props.color;
-    const styleColor={
+export default class NavBar extends React.Component{
+    constructor(props){
+        super(props);
+
+        this.setState={
+            hamburger:true
+        };
+
+        //this.toggleIcon = this.toggleIcon.bind(this);
+    }
+
+    toggleIcon(){
+        
+        this.setState((prevState)=>({
+            hamburger:!prevState.hamburger
+        }));
+
+    }
+
+    render(){
+        const rgb=this.props.color;
+        const styleColor={
         color:`${`rgb(${rgb[0]},${rgb[1]},${rgb[2]})`}`
     };
     return(
@@ -16,16 +35,17 @@ export default function NavBar(props){
                     <div class="nav-left col-1">
                         <img class="logo" src={adidasLogo} alt="adidas logo"></img>
                     </div>
+                    <a href="#menu-toggle" class="menu-toggle" aria-label="Open main menu" onClick={()=>this.toggleIcon}>
+                            <span class="fa fa-bars fa-3x" aria-hidden="true" ></span>
+                    </a>
+                    <a href="#" id="menu-close" class="menu-close" aria-label="Close main menu">
+                        <span class="sr-only">Close main menu</span>
+                        <span class="fa fa-close fa-3x" aria-hidden="true"></span>
+                    </a>                     
                     <div class="col-3 spacer">
                     </div>
-                    <div class="col-4 nav-center-parent">
-                        <a href="#nav-list" id="main-menu-close" class="menu-close" aria-label="Close main menu">
-                            <span class="sr-only">Close main menu</span>
-                            <span class="fa fa-close fa-3x" aria-hidden="true"></span>
-                        </a>
-                        <a href="#main-menu" class="menu-toggle" aria-label="Open main menu">
-                            <span class="fa fa-bars fa-3x" aria-hidden="true" ></span>
-                        </a> 
+                    <div class="col-4 nav-center-parent" id='menu-toggle'>
+
                         <ul class="nav-list">
 
                             <li class="nav-center-child">
@@ -50,4 +70,6 @@ export default function NavBar(props){
             </div>
         </header>
     );
+    }
+    
 } 
