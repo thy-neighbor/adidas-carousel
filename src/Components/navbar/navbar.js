@@ -31,7 +31,7 @@ export default class NavBar extends React.Component{
     return(
         <header>
             <div class="row">
-                <nav class="col-12">
+                <nav class="col-12" id='menu-toggle'>
                     <div class="nav-left col-1">
                         <img class="logo" src={adidasLogo} alt="adidas logo"></img>
                     </div>
@@ -44,7 +44,7 @@ export default class NavBar extends React.Component{
                     </a>                     
                     <div class="col-3 spacer">
                     </div>
-                    <div class="col-4 nav-center-parent" id='menu-toggle'>
+                    <div class="col-4 nav-center-parent" >
 
                         <ul class="nav-list">
 
@@ -61,8 +61,6 @@ export default class NavBar extends React.Component{
                     </div>
                     <div class="col-2 spacer">
                     </div>
-                    
-
                     <div class="nav-right col-2">
                         <button class="btn" id="adidas-url-btn" style={styleColor}>BACK TO ADIDAS.COM</button>
                     </div>

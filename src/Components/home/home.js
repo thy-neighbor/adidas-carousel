@@ -30,7 +30,7 @@ export default class Home extends React.Component{
             <div class="home-container" style={style}>
                 <NavBar color={rgb}/>
                 <section id="home-content">
-                    <div class="row">
+                    <div class="row no-margin-bottom">
                         <Carousel callBack={this.setColor}/>
                     </div>
                 

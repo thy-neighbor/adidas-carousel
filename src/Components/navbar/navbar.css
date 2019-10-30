@@ -2,6 +2,10 @@ header{
     position:static;
 }
 
+header > div.row{
+  margin-top:0px;
+}
+
 nav{
     margin-top: 25px;
     margin-bottom:20px;
@@ -101,14 +105,14 @@ button#adidas-url-btn:active{
   display: none;
   color:rgb(255,255,255);
   width: fit-content;
-  z-index: 1;
+  z-index: 1;    
+  position: absolute;
+  left: 6vw;
+  top: 8.5vh;
 }
 
 .menu-toggle{
 
-    position: absolute;
-    left: 6vw;
-    top: 8.5vh;
 }
 
 
@@ -117,22 +121,27 @@ button#adidas-url-btn:active{
 
 @media screen and (max-width: 640px){
 
-  .nav-center-parent{
+  nav > div.nav-center-parent {
     display: none;
   }
 
   .menu-toggle{
-      display:block;
+    display:block;
   }
 
-  .nav-center-parent:target {
+  nav:target > div.nav-center-parent {
+    display:block;
+  }
+
+  nav:target > a.menu-toggle{
+    display:none;
+  }
+
+  nav:target > a.menu-close{
     display:block;
   }
 
 
-  .menu-close:target + .nav-list{
-      display:none;
-  }
 
   .spacer{
       display:none;
@@ -142,7 +151,7 @@ button#adidas-url-btn:active{
     width:fit-content;
     position:absolute;
     float:none;
-    left:80vw;
+    left: 73vw;
     top:8.5vh;
   }
 
@@ -183,5 +192,8 @@ button#adidas-url-btn:active{
     margin: 0.8% auto;
   }
 
+  button#adidas-url-btn{
+    font-size:1.5vw;
+  }
 
 }

@@ -34,8 +34,8 @@
     width:100%;
 }
 
-.spacer{
-    /*visibility: hidden;*/
+.spacer{/*helps the float class position*/
+    visibility: hidden;
     background:rgb(255,255,255);
     border: dashed 0.5px rgb(0, 0, 0);
     height: 20px;
