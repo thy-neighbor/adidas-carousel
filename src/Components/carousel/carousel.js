@@ -56,11 +56,17 @@ export default class Carousel extends React.Component{
         
     }
 
-    clickNext(next){ 
+    clickNext(next,unFocus){ 
+        console.log("CAROUSEL - clickNext -> next: ",next);
+        if(unFocus){
+            this.leftFocus();
+        }   
 
         let h=this.slideHeight();
-        console.log("CAROUSEL - clickNext -> next: ",next);
+        
         this.props.callBack(this.averageColor(next));
+
+        //if next is the last element focus on other cursor document.querySelector('[id=left-arrow-container]')
 
         this.setState(prevState => ({
             index:[prevState.index[0]+1,prevState.index[1]+1],
@@ -68,10 +74,14 @@ export default class Carousel extends React.Component{
         }));
     }
 
-    clickPrev(prev){ 
+    clickPrev(prev,unFocus){ 
+        console.log("CAROUSEL - clickPrev -> prev: ",prev);
+        if(unFocus){
+            this.rightFocus();
+        }   
 
         let h=this.slideHeight();
-        console.log("CAROUSEL - clickPrev -> prev: ",prev);
+        
         this.props.callBack(this.averageColor(prev));
         this.setState(prevState => ({
             index:[prevState.index[0]-1,prevState.index[1]-1],
@@ -112,6 +122,16 @@ export default class Carousel extends React.Component{
         return document.querySelector('.slide-container').clientHeight
     }
 
+    leftFocus = () =>{  //for choose focus for screen readers
+        return document.querySelector('[id=left-arrow-container]').focus()
+        
+    }
+
+    rightFocus = () =>{ //for choose focus for screen readers
+        return document.querySelector('[id=right-arrow-container]').focus()
+        
+    }
+
     render(){
         let iter=this.state.index;
         let leftImages=this.copyArr(this.state.images);
@@ -135,13 +155,13 @@ export default class Carousel extends React.Component{
                 <div class="col-6 carousel-content" id="left-carousel">
                     <div class="slider-wrapper" style={leftStyle}>
                         {leftImages.map((image,i)=>(
-                            <SlideDown image={image} key={i}/>
+                            <SlideDown image={image} key={i} curr={iter[1]}/>
                                 
                         ))}
                     </div>
-
-                    {iter[0]>0 && iter[1]>0 &&
-                        <LeftArrow prevSlide={()=>this.clickPrev(leftImages[iter[0]-1])}/>
+                    
+                    {iter[0]>0 && iter[1]>0 && 
+                        <LeftArrow prevSlide={()=>this.clickPrev(leftImages[iter[0]-1],iter[1]-1===0)}/>
                     }
                     
                 </div>
@@ -156,8 +176,8 @@ export default class Carousel extends React.Component{
                         </div>
                         }
 
-                        {iter[1]<this.state.size && iter[1]<this.state.size &&
-                            <RightArrow nextSlide={()=>this.clickNext(leftImages[iter[0]+1])}/>
+                        {iter[1]<this.state.size && iter[1]<this.state.size && 
+                            <RightArrow nextSlide={()=>this.clickNext(leftImages[iter[0]+1],iter[0]+1===this.state.size)}/>
                         }
                     
                 </div>                

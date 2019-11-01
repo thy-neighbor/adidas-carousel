@@ -30,6 +30,14 @@ div#carousel{
 }
 
 .arrow-container{
+    /*Remove Button Styles*/
+    border: none;
+    text-decoration: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    background:none;
+    /*********************/
     opacity:0.5;
     position: absolute;
     z-index: 24;
@@ -37,6 +45,9 @@ div#carousel{
     transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
 }
+
+
+
 
 
 #right-arrow-container{
@@ -63,6 +74,7 @@ div#carousel{
     box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 */
 
+/*
 @media only screen and (max-width:640px){
     div#carousel{
         max-height: 600px;
@@ -74,7 +86,7 @@ div#carousel{
         overflow:hidden;
     }
 }
-    
+*/    
 
 
 

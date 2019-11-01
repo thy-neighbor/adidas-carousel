@@ -109,10 +109,18 @@ button#adidas-url-btn:active{
   position: absolute;
   left: 6vw;
   top: 8.5vh;
+  transition: all 0.3s ease-in-out;
 }
 
-.menu-toggle{
+.menu-toggle:hover,.menu-toggle:focus,
+.menu-close:hover,.menu-close:focus{
+  transform:scale(1.1,1.1);
+  box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
+.menu-toggle:active, .menu-close:active{
+  transform:scale(1.0,1.0);
+  box-shadow:0 4px 8px 0 rgba(71, 30, 30, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.08);
 }
 
 
@@ -185,7 +193,7 @@ button#adidas-url-btn:active{
     font-size: 1em;
     color: #fff;
     text-decoration: none;
-    border-bottom: 1px solid #383838;
+    border-bottom: 1px solid #ffffff3f;
   }
 
   .nav-center-child {

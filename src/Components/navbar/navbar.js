@@ -15,12 +15,12 @@ export default class NavBar extends React.Component{
         //this.toggleIcon = this.toggleIcon.bind(this);
     }
 
-    toggleIcon(){
+    componentDidMount(){
         
-        this.setState((prevState)=>({
-            hamburger:!prevState.hamburger
-        }));
-
+        if(document.location.hash==='#menu-toggle'){
+            return document.querySelector('.nav-list > li:first-child > .menu-item').focus()
+        }
+        
     }
 
     render(){
@@ -35,16 +35,15 @@ export default class NavBar extends React.Component{
                     <div class="nav-left col-1">
                         <img class="logo" src={adidasLogo} alt="adidas logo"></img>
                     </div>
-                    <a href="#menu-toggle" class="menu-toggle" aria-label="Open main menu" onClick={()=>this.toggleIcon}>
+                    <a href="#menu-toggle" class="menu-toggle" aria-label="Open main menu">
                             <span class="fa fa-bars fa-3x" aria-hidden="true" ></span>
                     </a>
                     <a href="#" id="menu-close" class="menu-close" aria-label="Close main menu">
-                        <span class="sr-only">Close main menu</span>
                         <span class="fa fa-close fa-3x" aria-hidden="true"></span>
                     </a>                     
                     <div class="col-3 spacer">
                     </div>
-                    <div class="col-4 nav-center-parent" >
+                    <div class="col-4 nav-center-parent" aria-label="Main menu" >
 
                         <ul class="nav-list">
 
