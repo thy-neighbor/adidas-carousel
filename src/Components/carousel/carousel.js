@@ -3,7 +3,6 @@ import LeftArrow from './arrows/left-arrow';
 import RightArrow from './arrows/right-arrow';
 import SlideUp from './slide/slide-up'
 import SlideDown from './slide/slide-down'
-import ColorThief from 'colorthief'
 import './carousel.css'
 import p1 from './pictures/girl-1773902_1920.jpg'
 import p2 from './pictures/bike-867229_1920.jpg'
@@ -14,15 +13,20 @@ import p6 from './pictures/sexy-3768718_1920.jpg'
 import p7 from './pictures/shaman-2837843_1920.jpg'
 import p8 from './pictures/woman-3146093_1920.jpg'
 
-export default class Carousel extends React.Component{
-    componentWillMount(){
 
-    }
+/** 
+  * @class Carousel
+  * @classdesc creates a double image carousel where the slides move simultaneously
+  * and each slider travels in the opposite direction.
+  * @author Josue Resilien josue.resilien@gmail.com
+  * @required image imports or image urls
+*/
+export default class Carousel extends React.Component{
     constructor(props){
         super(props);
 
         this.state={
-            images:[
+            images:[    //arr of images
                 p8,
                 p7,
                 p6,
@@ -32,17 +36,22 @@ export default class Carousel extends React.Component{
                 p2,
                 p1
             ],
-            index:[0,0],        //which means 0 and 1
-            size:7,
-            yOffset:[0,0],
-            bottom:0
+            index:[0,0],        //arr holding the index for each slide column
+            size:7,             //size of the image arr
+            yOffset:[0,0],      //offset arr for each slide column
+            bottom:0            //holds the value of the bottom of the column in pixels
         };
     }
+
+    /**
+     * @func componentDidMount()
+     * @desc Runs after react comonent renders.
+     * Sets the bottom state the first time component is rendered
+     * 
+     */
     componentDidMount(){
         let s=this.state.images.length;
         let b=-(this.slideHeight()*(s-1));
-        
-        console.log("p1 : ",p1);
         
         if(this.state.bottom===0){
             console.log("COMPONENTDIDMOUNT :", b);
@@ -56,6 +65,14 @@ export default class Carousel extends React.Component{
         
     }
 
+
+    /**
+     * @desc click next event for right button, increments the index and yOffset state
+     * @param string $next - the next image src to be displayed
+     * @param bool $unFocus - if false button is still active,
+     * if true button dissappeared and other button needs to be focused for screen readers
+     * 
+     */
     clickNext(next,unFocus){ 
         console.log("CAROUSEL - clickNext -> next: ",next);
         if(unFocus){
@@ -74,6 +91,12 @@ export default class Carousel extends React.Component{
         }));
     }
 
+    /**
+     * @desc click prev event for left button, decrements the index and yOffset state
+     * @param string next - the next image src to be displayed
+     * @param bool unFocus - if false button is still active,
+     * if true button dissappeared and other button needs to be focused for screen readers
+     */
     clickPrev(prev,unFocus){ 
         console.log("CAROUSEL - clickPrev -> prev: ",prev);
         if(unFocus){
@@ -89,6 +112,13 @@ export default class Carousel extends React.Component{
         }));
     }
 
+
+    /**
+     * @func averageColor(imgSrc)
+     * @desc Gets a rgb coordinate of an image near an edge, by using an "unseen canvas element"
+     * @param string imgSrc - the image src used to get pixel data from
+     * @return number[] - array of rgb color data. [r,g,b]
+     */
     averageColor(imgSrc){
         let canvas = document.createElement('canvas');
         let ctx= canvas.getContext('2d');
@@ -108,6 +138,13 @@ export default class Carousel extends React.Component{
 
     }
 
+    
+    /**
+     * @func copyArr(inp)
+     * @desc Make a new array by coping a previous
+     * @param <x>[] inp - inp array to copy 
+     * @return <x>[] - array identical to input, referenced in different data space
+     */
     copyArr(inp){
         let arr=[];
 
@@ -118,15 +155,30 @@ export default class Carousel extends React.Component{
         return arr;
     }
 
+    /**
+     * @func slideHeight
+     * @desc Gets the size of the carousel from the application
+     * @return Number - the height of the carousel
+     */
     slideHeight = () => {
         return document.querySelector('.slide-container').clientHeight
     }
-
+    /**
+     * @accessibilty
+     * @func leftFocus
+     * @desc Sets the focus to the left arrow in the carousel
+     * @return void
+     */
     leftFocus = () =>{  //for choose focus for screen readers
         return document.querySelector('[id=left-arrow-container]').focus()
         
     }
-
+    /**
+     * @accessibilty
+     * @func rightFocus
+     * @desc Sets the focus to the right arrow in the carousel
+     * @return void
+     */
     rightFocus = () =>{ //for choose focus for screen readers
         return document.querySelector('[id=right-arrow-container]').focus()
         
@@ -154,12 +206,13 @@ export default class Carousel extends React.Component{
             <div class="col-12" id="carousel">
                 <div class="col-6 carousel-content" id="left-carousel">
                     <div class="slider-wrapper" style={leftStyle}>
+                        //create all the images
                         {leftImages.map((image,i)=>(
                             <SlideDown image={image} key={i} curr={iter[1]}/>
                                 
                         ))}
                     </div>
-                    
+                    //if index is at the beginning of the array left arrow dissapears
                     {iter[0]>0 && iter[1]>0 && 
                         <LeftArrow prevSlide={()=>this.clickPrev(leftImages[iter[0]-1],iter[1]-1===0)}/>
                     }
@@ -169,13 +222,14 @@ export default class Carousel extends React.Component{
                 <div class="col-6 carousel-content" id="right-carousel">
                     {this.state.bottom!==0 &&
                         <div class="slider-wrapper" style={rightStyle}>
+                            //create all the images
                             {rightImages.map((image,i)=>(
                                 <SlideUp image={image} key={i}/>
                                     
                             ))}
                         </div>
                         }
-
+                        //if index is at the end of the array right arrow dissapears
                         {iter[1]<this.state.size && iter[1]<this.state.size && 
                             <RightArrow nextSlide={()=>this.clickNext(leftImages[iter[0]+1],iter[0]+1===this.state.size)}/>
                         }

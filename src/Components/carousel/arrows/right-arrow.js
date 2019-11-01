@@ -1,6 +1,13 @@
 
-
 import React from 'react'
+
+/**
+ * @func RightArrow(props)
+ * @desc Creates a button to traverse carousel right (increment)
+ * @param object props
+ *      @param string props.nextSlide - calls parent -> <RightArrow nextSlide/> function
+ * @return JSX - button
+ */
 
 export default function RightArrow(props){
     return(
