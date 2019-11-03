@@ -17,7 +17,8 @@ export default function SlideUp(props){
         transform: `scaleX(-1)`
       }
     return(
-        <div class="slide-container" style={styles}>
+        <div className="slide-container" style={styles}>
+            
         </div>
     );
 }

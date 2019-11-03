@@ -12,10 +12,6 @@ import './navbar.css';
   *     @param Number[] props.color - [r,g,b] color arrray for matching text color manipulation
 */
 export default class NavBar extends React.Component{
-    constructor(props){
-        super(props);
-
-    }
 
     /**
      * @func componentDidMount()
@@ -37,44 +33,44 @@ export default class NavBar extends React.Component{
     };
     return(
         <header>
-            <div class="row">
-                <nav class="col-12" id='menu-toggle'>
-                    <div class="nav-left col-1">
-                        <img class="logo" src={adidasLogo} alt="adidas logo"></img>
+            <div className="row">
+                <nav className="col-12" id='menu-toggle'>
+                    <div className="nav-left col-1">
+                        <img className="logo" src={adidasLogo} alt="adidas logo"></img>
                     </div>
 
-                    //mobile only, hamburger menu open on click
-                    <a href="#menu-toggle" class="menu-toggle" aria-label="Open main menu">
-                            <span class="fa fa-bars fa-3x" aria-hidden="true" ></span>
+                    
+                    <a href="#menu-toggle" className="menu-toggle" aria-label="Open main menu">
+                            <span className="fa fa-bars fa-3x" aria-hidden="true" ></span>
                     </a>
 
-                    //mobile only, close nav menu
-                    <a href="#" id="menu-close" class="menu-close" aria-label="Close main menu">
-                        <span class="fa fa-close fa-3x" aria-hidden="true"></span>
+                    
+                    <a href="#" id="menu-close" className="menu-close" aria-label="Close main menu">
+                        <span className="fa fa-close fa-3x" aria-hidden="true"></span>
                     </a> 
 
-                    <div class="col-3 spacer">
+                    <div className="col-3 spacer">
                     </div>
-                    //nav links
-                    <div class="col-4 nav-center-parent" aria-label="Main menu" >
-                        <ul class="nav-list">
-                            <li class="nav-center-child">
-                                <a class="menu-item" href="#">SHOP</a>
+                    
+                    <div className="col-4 nav-center-parent" aria-label="Main menu" >
+                        <ul className="nav-list">
+                            <li className="nav-center-child">
+                                <a className="menu-item" href="#">SHOP</a>
                             </li>
-                            <li class="nav-center-child">
-                                <a class="menu-item" href="#">COLLECTION</a>
+                            <li className="nav-center-child">
+                                <a className="menu-item" href="#">COLLECTION</a>
                             </li>
-                            <li class="nav-center-child">
-                                <a class="menu-item" href="#">ABOUT</a>
+                            <li className="nav-center-child">
+                                <a className="menu-item" href="#">ABOUT</a>
                             </li>
                         </ul>
                     </div>
 
-                    <div class="col-2 spacer">
+                    <div className="col-2 spacer">
                     </div>
 
-                    <div class="nav-right col-2">
-                        <button class="btn" id="adidas-url-btn" style={styleColor}>BACK TO ADIDAS.COM</button>
+                    <div className="nav-right col-2">
+                        <button className="btn" id="adidas-url-btn" style={styleColor}>BACK TO ADIDAS.COM</button>
                     </div>
                 </nav>
             </div>

@@ -203,33 +203,33 @@ export default class Carousel extends React.Component{
         
 
         return(
-            <div class="col-12" id="carousel">
-                <div class="col-6 carousel-content" id="left-carousel">
-                    <div class="slider-wrapper" style={leftStyle}>
-                        //create all the images
+            <div className="col-12" id="carousel">
+                <div className="col-6 carousel-content" id="left-carousel">
+                    <div className="slider-wrapper" style={leftStyle}>
+                        
                         {leftImages.map((image,i)=>(
                             <SlideDown image={image} key={i} curr={iter[1]}/>
                                 
                         ))}
                     </div>
-                    //if index is at the beginning of the array left arrow dissapears
+                    
                     {iter[0]>0 && iter[1]>0 && 
                         <LeftArrow prevSlide={()=>this.clickPrev(leftImages[iter[0]-1],iter[1]-1===0)}/>
                     }
                     
                 </div>
 
-                <div class="col-6 carousel-content" id="right-carousel">
+                <div className="col-6 carousel-content" id="right-carousel">
                     {this.state.bottom!==0 &&
-                        <div class="slider-wrapper" style={rightStyle}>
-                            //create all the images
+                        <div className="slider-wrapper" style={rightStyle}>
+                            
                             {rightImages.map((image,i)=>(
                                 <SlideUp image={image} key={i}/>
                                     
                             ))}
                         </div>
                         }
-                        //if index is at the end of the array right arrow dissapears
+                        
                         {iter[1]<this.state.size && iter[1]<this.state.size && 
                             <RightArrow nextSlide={()=>this.clickNext(leftImages[iter[0]+1],iter[0]+1===this.state.size)}/>
                         }

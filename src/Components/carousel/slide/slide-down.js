@@ -17,7 +17,7 @@ export default function SlideDown(props){
       }
 
     return(
-        <div class="slide-container" style={styles}>
+        <div className="slide-container" style={styles}>
             
         </div>
     );
