@@ -6,6 +6,11 @@ Mobile and Screen Reader Friendly
 Original Design Concept by Nathan Riley
 https://dribbble.com/shots/4062487-Adicolor-SS2018-Lookbook-Carousel
 
+## Screenshots
+
+Desktop:
+
+
 ## Live Demo
 https://adicolor.herokuapp.com/
 
