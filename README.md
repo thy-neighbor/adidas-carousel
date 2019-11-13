@@ -9,6 +9,13 @@ https://dribbble.com/shots/4062487-Adicolor-SS2018-Lookbook-Carousel
 ## Screenshots
 
 Desktop:
+![Main page](Screenshots/adicolor-desktop.JPG)
+
+Mobile:
+![Main page](Screenshots/adicolor-mobile.JPG)
+
+Mobile-Menu:
+![Main page](Screenshots/adicolor-mobile-menu.JPG)
 
 
 ## Live Demo
