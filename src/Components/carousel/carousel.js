@@ -6,12 +6,13 @@ import SlideDown from './slide/slide-down'
 import './carousel.css'
 import p1 from './pictures/girl-1773902_1920.jpg'
 import p2 from './pictures/bike-867229_1920.jpg'
-import p3 from './pictures/model-2498663_1920.jpg'
-import p4 from './pictures/portrait-3164868_1920.jpg'
+import p3 from './pictures/thyneighbor_a_burgundy_car_2c0add8a-7566-412c-a4de-71f8a49c6e29.png'
+import p4 from './pictures/model-2498663_1920.jpg'
 import p5 from './pictures/portrait-3348496_1920.jpg'
-import p6 from './pictures/sexy-3768718_1920.jpg'
+import p6 from './pictures/thyneighbor_fashionable_black_man_standing_in_front_of_purple_w_169e6c56-bc30-4bc7-b089-eedb93eca2de.png';
 import p7 from './pictures/shaman-2837843_1920.jpg'
-import p8 from './pictures/woman-3146093_1920.jpg'
+import p8 from './pictures/thyneighbor_a_black_teenager_laying_on_a_bed_of_green_grass_4d4e4712-2466-40f6-9b3a-cd1e228f6521.png';
+import p9 from './pictures/thyneighbor_a_film_camera_laying_on_green_bed_sheets_c51b21a9-64ec-4f45-9e46-45406ab7b099.png';
 
 
 /** 
@@ -27,6 +28,7 @@ export default class Carousel extends React.Component{
 
         this.state={
             images:[    //arr of images
+                p9,
                 p8,
                 p7,
                 p6,
@@ -37,7 +39,7 @@ export default class Carousel extends React.Component{
                 p1
             ],
             index:[0,0],        //arr holding the index for each slide column
-            size:7,             //size of the image arr
+            size:8,             //size of the image arr
             yOffset:[0,0],      //offset arr for each slide column
             bottom:0            //holds the value of the bottom of the column in pixels
         };
